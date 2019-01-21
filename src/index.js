@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './views/layout/App';
 import { Provider } from 'react-redux';
-// import App from "../app/views/layouts/app";
-import configureStore from "../src/state/store";
+import configureStore from "./state/store";
 
 const reduxStore = configureStore( {} );
 
