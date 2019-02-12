@@ -1,4 +1,4 @@
-import { Home, Category } from '../views/components';
+import { Home, CategoryContainer } from '../views/components';
 
 const routes = [
   {
@@ -8,7 +8,7 @@ const routes = [
   },
   {
     path: '/categories',
-    component: Category,
+    component: CategoryContainer,
     exact: true
   }
 ];

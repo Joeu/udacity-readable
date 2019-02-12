@@ -24,4 +24,27 @@ const categoriesReducer = (state = {}, action) => {
   }
 }
 
+const categoryReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.FETCH_CATEGORY_BEGIN:
+      return {
+        ...state,
+        error: null
+      }
+    case types.FETCH_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        categories: action.payload.categories
+      }
+    case types.FETCH_CATEGORY_ERROR:
+      return {
+        ...state,
+        error: action.payload.error,
+        categories: []
+      }
+    default:
+      return state
+  }
+}
+
 export default categoriesReducer;

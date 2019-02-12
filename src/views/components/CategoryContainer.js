@@ -1,10 +1,15 @@
 import { connect } from 'react-redux';
 import Category from './Category';
+import { fetchCategoryPosts } from '../../state/ducks/category/actions';
 
-const mapStateToProps = state => {
-  return state;
-}
+const mapStateToProps = state => ({
+  state
+});
 
-const CategoryContainer = connect(mapStateToProps)(Category);
+const mapDispatchToProps = dispatch => ({
+  fetchCategoryPosts: () => dispatch(fetchCategoryPosts())
+});
+
+const CategoryContainer = connect(mapStateToProps, mapDispatchToProps)(Category);
 
 export default CategoryContainer;

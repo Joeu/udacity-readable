@@ -17,16 +17,17 @@ class App extends Component {
     return (
       <div>
         <header>
-        <Link to='/'>HOME</Link>
-        {this.props.categories && this.props.categories.map(
-          category =>
-            <Link key={category.name} to={`/categories/${category.path}`}>{category.name}</Link>
-          )
-        }
+          <Link to='/'>HOME</Link>
+          <Link to='/categories'>| CATEGORIES</Link>
+          {this.props.categories && this.props.categories.map(
+            category =>
+              <Link key={category.name} to={`/${category.path}/posts`}><span>| </span>{category.name}</Link>
+            )
+          }
+          {routes.map(route => (
+            <Route key={route.path} {...route} />
+          ))}
         </header>
-        {routes.map(route => (
-          <Route key={route.path} {...route} />
-        ))}
 
         <footer>
           I`m the footer, I am on every page.

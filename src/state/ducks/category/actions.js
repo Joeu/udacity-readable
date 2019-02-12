@@ -37,3 +37,40 @@ export const fetchCategoriesError = (error) => {
     }
   }
 }
+
+export const fetchCategoryPosts = (category) => {
+  return dispatch => {
+    dispatch(fetchCategoryPostsBegin());
+    return apiServie.fetchCategoryPosts(category)
+      .then(response => {
+        dispatch(fetchCategoriesSuccess(response.categories));
+        return response.categories;
+      }).catch(error =>
+        dispatch(fetchCategoriesError(error)
+      ));
+  }
+}
+
+export const fetchCategoryPostsBegin = () => {
+  return {
+    type: types.FETCH_CATEGORIES_BEGIN
+  }
+}
+
+export const fetchCategoryPostsSuccess = (categories) => {
+  return {
+    type: types.FETCH_CATEGORIES_SUCCESS,
+    payload: { 
+      categories
+    }
+  }
+}
+
+export const fetchCategoryPostsError = (error) => {
+  return {
+    type: types.FETCH_CATEGORIES_ERROR,
+    payload: {
+      error
+    }
+  }
+}
