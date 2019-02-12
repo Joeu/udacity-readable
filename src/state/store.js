@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunkMiddleware from "redux-thunk";
 import * as reducers from "./ducks";
-import { apiService, logger } from "./middlewares";
+import { logger } from "./middlewares";
 
 export default function configureStore( initialState ) {
     const rootReducer = combineReducers( reducers );
@@ -10,7 +10,6 @@ export default function configureStore( initialState ) {
         rootReducer,
         initialState,
         applyMiddleware(
-            apiService,
             thunkMiddleware,
             logger
         ),

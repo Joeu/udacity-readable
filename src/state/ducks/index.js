@@ -1,2 +1,2 @@
-export { default as category } from "./category";
-export { default as post } from "./post";
+export { default as categories } from "./category";
+export { default as posts } from "./post";
