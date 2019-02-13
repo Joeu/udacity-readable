@@ -10,6 +10,11 @@ const routes = [
     path: '/categories',
     component: CategoryContainer,
     exact: true
+  },
+  {
+    path: '*/posts',
+    component: CategoryContainer,
+    exact: true
   }
 ];
 

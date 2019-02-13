@@ -43,8 +43,8 @@ export const fetchCategoryPosts = (category) => {
     dispatch(fetchCategoryPostsBegin());
     return apiServie.fetchCategoryPosts(category)
       .then(response => {
-        dispatch(fetchCategoriesSuccess(response.categories));
-        return response.categories;
+        dispatch(fetchCategoriesSuccess(response));
+        return response;
       }).catch(error =>
         dispatch(fetchCategoriesError(error)
       ));
@@ -53,22 +53,22 @@ export const fetchCategoryPosts = (category) => {
 
 export const fetchCategoryPostsBegin = () => {
   return {
-    type: types.FETCH_CATEGORIES_BEGIN
+    type: types.FETCH_CATEGORY_BEGIN
   }
 }
 
-export const fetchCategoryPostsSuccess = (categories) => {
+export const fetchCategoryPostsSuccess = (posts) => {
   return {
-    type: types.FETCH_CATEGORIES_SUCCESS,
+    type: types.FETCH_CATEGORY_SUCCESS,
     payload: { 
-      categories
+      posts
     }
   }
 }
 
 export const fetchCategoryPostsError = (error) => {
   return {
-    type: types.FETCH_CATEGORIES_ERROR,
+    type: types.FETCH_CATEGORY_ERROR,
     payload: {
       error
     }

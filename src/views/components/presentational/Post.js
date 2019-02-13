@@ -1,10 +1,10 @@
 import React from 'react';
-import CommentContainer from './CommentContainer';
+import CommentContainer from '../container/CommentContainer';
 
 const Post = (props) => {
   return (
     <div>
-      Thats a post component, and I display Comments
+      I'm a Post component, and I display Comments
       <CommentContainer></CommentContainer>
       <CommentContainer></CommentContainer>
     </div>

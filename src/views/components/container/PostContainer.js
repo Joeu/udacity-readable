@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Post from './Post';
+import Post from '../presentational/Post';
 
 const mapStateToProps = state => {
   return state;

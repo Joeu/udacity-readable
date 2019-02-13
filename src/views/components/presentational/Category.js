@@ -1,5 +1,5 @@
 import React from 'react';
-import PostContainer from './PostContainer';
+import PostContainer from '../container/PostContainer';
 
 const Category = (props) => {
   console.log("CATEGORY PROPS", props);
