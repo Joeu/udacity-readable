@@ -10,6 +10,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchCategories();
+    this.props.fetchAllPosts();
   }
 
   render() {
@@ -38,7 +39,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories.categoriesReducer.categories
+  categories: state.categories.categoriesReducer.categories,
+  posts: state.posts.posts
 });
 
 const mapDispatchToProps = dispatch => ({

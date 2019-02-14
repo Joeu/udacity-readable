@@ -2,9 +2,6 @@ import React from 'react';
 import '../../styles/Post.css';
 
 const Post = (props) => {
-
-  console.log("POST", props);
-
   if (props.post){
     return (
       <article className='post-container'>

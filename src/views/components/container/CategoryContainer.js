@@ -4,19 +4,19 @@ import Category from '../presentational/Category';
 import { fetchCategoryPosts } from '../../../state/ducks/category/actions';
 
 class CategoryContainer extends Component {
-  componentDidMount() {
-    this.props.fetchCategoryPosts(this.props.location.pathname);
-  }
-
   render() {
     return (
-      <Category posts={this.props.categoryPosts}></Category>
+      <Category posts={this.props.posts}></Category>
     )
   }
 } 
 
-const mapStateToProps = (state) => ({
-  categoryPosts: state.categories.categoryReducer.posts
+const filterPosts = (posts, category) => {
+  return posts.filter(post => post.category === category)
+}
+
+const mapStateToProps = (state, ownProps) => ({
+  posts: state.posts.posts && filterPosts(state.posts.posts, ownProps.location.pathname.split('/')[1])
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

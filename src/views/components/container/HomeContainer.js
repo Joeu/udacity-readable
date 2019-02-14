@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Home from '../presentational/Home';
-import { fetchAllPosts } from '../../../state/ducks/post/actions';
+// import { fetchAllPosts } from '../../../state/ducks/post/actions';
 
 class HomeContainer extends Component {
   componentDidMount() {
-    this.props.fetchAllPosts();
+    // this.props.fetchAllPosts();
+    console.log(this.props);
   }
 
   render() {
@@ -20,7 +21,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllPosts: () => dispatch(fetchAllPosts())
+  // fetchAllPosts: () => dispatch(fetchAllPosts())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
