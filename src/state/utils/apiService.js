@@ -16,3 +16,10 @@ export const fetchCategoryPosts = (category) =>
   fetch(`${baseUrl}${category}`, { headers })
     .then(res => res.json())
     .then(data => data)
+
+
+// Posts
+export const fetchAllPosts = () =>
+  fetch(`${baseUrl}/posts`, { headers })
+    .then(res => res.json())
+    .then(data => data)

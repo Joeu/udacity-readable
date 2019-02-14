@@ -1,16 +1,26 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Category from '../presentational/Category';
 import { fetchCategoryPosts } from '../../../state/ducks/category/actions';
 
-const mapStateToProps = (state, ownProps) => ({
-  state,
-  ownProps
+class CategoryContainer extends Component {
+  componentDidMount() {
+    this.props.fetchCategoryPosts(this.props.location.pathname);
+  }
+
+  render() {
+    return (
+      <Category posts={this.props.categoryPosts}></Category>
+    )
+  }
+} 
+
+const mapStateToProps = (state) => ({
+  categoryPosts: state.categories.categoryReducer.posts
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  teste: () => dispatch(fetchCategoryPosts(ownProps.location.pathname))
+  fetchCategoryPosts: () => dispatch(fetchCategoryPosts(ownProps.location.pathname))
 });
 
-const CategoryContainer = connect(mapStateToProps, mapDispatchToProps)(Category);
-
-export default CategoryContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryContainer);

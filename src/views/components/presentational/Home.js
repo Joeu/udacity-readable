@@ -1,13 +1,16 @@
 import React from 'react';
-import Post from '../presentational/Post';
+import Post from './Post';
 
-const Category = (props) => {
+const Home = (props) => {
+
+  console.log("HOME", props);
+
   return (
     <div>
-      Thats a Category component, which displays Posts
+      <div>POSTS</div>
       {props.posts && props.posts.map(post => <Post key={post.id} post={post}></Post>)}
     </div>
   )
 }
 
-export default Category;
+export default Home;

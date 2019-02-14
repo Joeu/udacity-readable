@@ -43,10 +43,10 @@ export const fetchCategoryPosts = (category) => {
     dispatch(fetchCategoryPostsBegin());
     return apiServie.fetchCategoryPosts(category)
       .then(response => {
-        dispatch(fetchCategoriesSuccess(response));
+        dispatch(fetchCategoryPostsSuccess(response));
         return response;
       }).catch(error =>
-        dispatch(fetchCategoriesError(error)
+        dispatch(fetchCategoryPostsError(error)
       ));
   }
 }

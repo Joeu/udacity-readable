@@ -1,18 +1,23 @@
-import { Home, CategoryContainer } from '../views/components';
+import { HomeContainer, CategoryContainer } from '../views/components';
 
 const routes = [
   {
     path: '/',
-    component: Home,
+    component: HomeContainer,
     exact: true
   },
   {
-    path: '/categories',
+    path: '/react/posts',
     component: CategoryContainer,
     exact: true
   },
   {
-    path: '*/posts',
+    path: '/redux/posts',
+    component: CategoryContainer,
+    exact: true
+  },
+  {
+    path: '/udacity/posts',
     component: CategoryContainer,
     exact: true
   }
