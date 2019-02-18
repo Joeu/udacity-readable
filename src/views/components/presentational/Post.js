@@ -1,14 +1,18 @@
 import React from 'react';
 import '../../styles/Post.css';
+import Comment from './Comment';
 
 const Post = (props) => {
-  if (props.post){
+  if (props.post) {
     return (
-      <article className='post-container'>
-        <div><span>{props.post.title}</span></div>
-        <div><span>{props.post.body}</span></div>
-        <div><span>{props.post.author}</span></div>
-      </article>
+      <div className='post-container'>
+        <Comment post={props.post}></Comment>
+        <div className='post-button-control'>
+          <button class="btn"><i class="fa fa-comment"></i></button>
+          <button class="btn"><i class="fa fa-edit"></i></button>
+          <button class="btn"><i class="fa fa-trash"></i></button>
+        </div>
+      </div>
     )
   } else {
     return (<div>NO POSTS</div>)
