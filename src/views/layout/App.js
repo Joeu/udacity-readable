@@ -4,6 +4,7 @@ import { NavLink, Route } from "react-router-dom";
 import routes from '../../routes';
 import { fetchCategories } from '../../state/ducks/category/actions';
 import { fetchAllPosts } from '../../state/ducks/post/actions';
+import * as githubLogo from '../images/github_footer.png';
 import '../styles/App.css';
 
 class App extends Component {
@@ -31,7 +32,9 @@ class App extends Component {
         </main>
 
         <footer>
-          I`m the footer, I am on every page.
+          <a href='https://github.com/Joeu' target='_blank'>
+              <img className='footer-img' src={githubLogo} alt='Github repository.' />
+          </a>
         </footer>
       </div>
     );
