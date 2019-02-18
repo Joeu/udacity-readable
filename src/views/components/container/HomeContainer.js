@@ -5,7 +5,6 @@ import Home from '../presentational/Home';
 
 class HomeContainer extends Component {
   componentDidMount() {
-    // this.props.fetchAllPosts();
     console.log(this.props);
   }
 
