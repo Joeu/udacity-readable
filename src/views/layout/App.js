@@ -4,7 +4,6 @@ import { NavLink, Route } from "react-router-dom";
 import routes from '../../routes';
 import { fetchCategories } from '../../state/ducks/category/actions';
 import { fetchAllPosts } from '../../state/ducks/post/actions';
-import { fetchPostComments } from '../../state/ducks/comment/actions';
 import * as githubLogo from '../images/github_footer.png';
 import '../styles/App.css';
 
@@ -13,7 +12,6 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchCategories();
     this.props.fetchAllPosts()
-      // .then(posts => posts.map(post => this.props.fetchPostComments(post.id)));
   }
 
   render() {
@@ -51,7 +49,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchCategories: () => dispatch(fetchCategories()),
   fetchAllPosts: () => dispatch(fetchAllPosts()),
-  fetchPostComments: (postId) => dispatch(fetchPostComments(postId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

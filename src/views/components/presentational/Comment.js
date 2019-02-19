@@ -4,7 +4,7 @@ import TextContent from './TextContent';
 const Comment = (props) => {
   return (
     <div>
-      <TextContent></TextContent>
+      <TextContent post={props.comment}></TextContent>
     </div>
   )
 }
