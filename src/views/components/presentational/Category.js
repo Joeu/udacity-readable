@@ -1,12 +1,19 @@
 import React from 'react';
 import PostContainer from '../container/PostContainer';
+import NoText from './NoText';
 
 const Category = (props) => {
-  return (
-    <div>
-      {props.posts && props.posts.map(post => <PostContainer key={post.id} post={post}></PostContainer>)}
-    </div>
-  )
+  if (props.posts && props.posts.length > 0) {
+    return (
+      <div>
+        {props.posts.map(post => <PostContainer key={post.id} post={post}></PostContainer>)}
+      </div>
+    )
+  } else {
+    return (
+      <NoText></NoText>
+    )
+  }
 }
 
 export default Category;

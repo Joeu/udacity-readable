@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import Comment from '../presentational/Comment';
 
 class CommentContainer extends Component {
-  componentDidMount() {
-  }
-
   render() {
     return (
       <Comment></Comment>
