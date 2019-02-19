@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Post from '../presentational/Post';
 
-
 class PostContainer extends Component {
   render() {
     return (
@@ -18,7 +17,7 @@ const filterComments = (comments, post) => {
 
 const mapStateToProps = (state, ownProps) => ({
   state,
-  comments: filterComments(Object.values(state.comments), ownProps.post)
+  comments: filterComments(Object.values(state.comments.commentsReducer), ownProps.post)
 });
 
 export default connect(mapStateToProps)(PostContainer);

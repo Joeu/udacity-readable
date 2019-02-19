@@ -1,13 +1,12 @@
 import React from 'react';
 import '../../styles/Post.css';
-import TextContent from './TextContent';
+import TextContentContainer from '../container/TextContentContainer';
 import Comment from './Comment';
 
 const Post = (props) => {
-  console.log("POST PROPS", props);
   return (
     <div className='post-container'>
-      <TextContent post={props.post}></TextContent>
+      <TextContentContainer post={props.post}></TextContentContainer>
       {props.comments && props.comments.map(comment => <Comment key={comment.id} comment={comment}></Comment>)}
     </div>
   )
