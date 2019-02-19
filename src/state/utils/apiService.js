@@ -25,7 +25,8 @@ export const fetchAllPosts = () =>
     .then(data => data)
 
 // Comments
-export const fetchPostComments = (postId) => 
-  fetch(`${baseUrl}/posts/${postId}/comments`, { headers })
+export const fetchPostComments = function(postId){
+  return fetch(`${baseUrl}/posts/${postId}/comments`, { headers })
     .then(res => res.json())
     .then(data => data)
+} 

@@ -23,18 +23,14 @@ export const fetchCategoriesBegin = () => {
 export const fetchCategoriesSuccess = (categories) => {
   return {
     type: types.FETCH_CATEGORIES_SUCCESS,
-    payload: { 
-      categories
-    }
+    categories
   }
 }
 
 export const fetchCategoriesError = (error) => {
   return {
     type: types.FETCH_CATEGORIES_ERROR,
-    payload: {
-      error
-    }
+    error
   }
 }
 
@@ -60,17 +56,13 @@ export const fetchCategoryPostsBegin = () => {
 export const fetchCategoryPostsSuccess = (posts) => {
   return {
     type: types.FETCH_CATEGORY_SUCCESS,
-    payload: { 
-      posts
-    }
+    posts
   }
 }
 
 export const fetchCategoryPostsError = (error) => {
   return {
     type: types.FETCH_CATEGORY_ERROR,
-    payload: {
-      error
-    }
+    error
   }
 }

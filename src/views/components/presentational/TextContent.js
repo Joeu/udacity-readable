@@ -14,7 +14,7 @@ const Comment = (props) => {
             <div className='post-button-control'>
               <button className="btn"><i className="fas fa-thumbs-up"></i></button>
               <button className="btn"><i className="fas fa-thumbs-down"></i></button>
-              <button className="btn"><i className="fa fa-comment"></i></button>
+              {props.post.category && <button className="btn"><i className="fa fa-comment"></i></button>}
               <button className="btn"><i className="fa fa-edit"></i></button>
               <button className="btn"><i className="fa fa-trash"></i></button>
             </div>

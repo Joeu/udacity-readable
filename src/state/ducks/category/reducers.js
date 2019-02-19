@@ -6,17 +6,17 @@ const categoriesReducer = (state = {}, action) => {
     case types.FETCH_CATEGORIES_BEGIN:
       return {
         ...state,
-        error: null
       }
     case types.FETCH_CATEGORIES_SUCCESS:
+      const { categories } = action;
       return {
         ...state,
-        categories: action.payload.categories
+        categories
       }
     case types.FETCH_CATEGORIES_ERROR:
       return {
         ...state,
-        error: action.payload.error,
+        error: action.error,
         categories: []
       }
     default:
@@ -32,14 +32,15 @@ const categoryReducer = (state = {}, action) => {
         error: null
       }
     case types.FETCH_CATEGORY_SUCCESS:
+      const { posts } = action;
       return {
         ...state,
-        posts: action.payload.posts
+        posts
       }
     case types.FETCH_CATEGORY_ERROR:
       return {
         ...state,
-        error: action.payload.error,
+        error: action.error,
         posts: []
       }
     default:

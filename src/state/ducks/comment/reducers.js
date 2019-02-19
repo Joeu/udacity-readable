@@ -5,17 +5,17 @@ const commentsReducer = (state = {}, action) => {
     case types.FETCH_COMMENTS_BEGIN:
       return {
         ...state,
-        error: null
       }
     case types.FETCH_COMMENTS_SUCCESS:
+      const { comments } = action;
       return {
         ...state,
-        comments: action.payload.comments
+        ...comments
       }
     case types.FETCH_COMMENTS_ERROR:
       return {
         ...state,
-        error: action.payload.error,
+        error: action.error,
         comments: []
       }
     default:

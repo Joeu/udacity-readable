@@ -1,0 +1,9 @@
+.comment {
+  padding: 5px 0px 5px 10%;
+  width: 100%;
+}
+
+.post-button-control {
+  display: flex;
+  justify-content: flex-end
+}

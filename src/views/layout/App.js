@@ -11,7 +11,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchCategories();
-    this.props.fetchAllPosts()
+    this.props.fetchAllPosts();
   }
 
   render() {
@@ -48,7 +48,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchCategories: () => dispatch(fetchCategories()),
-  fetchAllPosts: () => dispatch(fetchAllPosts()),
+  fetchAllPosts: () => dispatch(fetchAllPosts())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

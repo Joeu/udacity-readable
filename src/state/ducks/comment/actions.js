@@ -23,17 +23,13 @@ export const fetchPostCommentsBegin = () => {
 export const fetchPostCommentsSuccess = (comments) => {
   return {
     type: types.FETCH_COMMENTS_SUCCESS,
-    payload: { 
-      comments
-    }
+    comments
   }
 }
 
 export const fetchPostCommentsError = (error) => {
   return {
     type: types.FETCH_COMMENTS_ERROR,
-    payload: {
-      error
-    }
+    error
   }
 }

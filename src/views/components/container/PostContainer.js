@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Post from '../presentational/Post';
-import { fetchPostComments } from '../../../state/ducks/comment/actions';
 
 
 class PostContainer extends Component {
-  componentDidMount() {
-    this.props.fetchPostComments(this.props.post.id);
-  }
-
   render() {
     return (
       <Post post={this.props.post} comments={this.props.comments}></Post>
@@ -16,12 +11,14 @@ class PostContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  comments: state.comments && state.comments.comments
+const filterComments = (comments, post) => {
+  return comments.filter(comment => comment.parentId === post.id)
+}
+
+
+const mapStateToProps = (state, ownProps) => ({
+  state,
+  comments: filterComments(Object.values(state.comments), ownProps.post)
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPostComments: (postId) => dispatch(fetchPostComments(postId))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostContainer);
+export default connect(mapStateToProps)(PostContainer);

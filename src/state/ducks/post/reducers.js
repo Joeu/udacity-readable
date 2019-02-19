@@ -5,17 +5,17 @@ const postsReducer = (state = {}, action) => {
     case types.FETCH_POSTS_BEGIN:
       return {
         ...state,
-        error: null
       }
     case types.FETCH_POSTS_SUCCESS:
+      const { posts } = action;
       return {
         ...state,
-        posts: action.payload.posts
+        posts
       }
     case types.FETCH_POSTS_ERROR:
       return {
         ...state,
-        error: action.payload.error,
+        error: action.error,
         posts: []
       }
     default:
