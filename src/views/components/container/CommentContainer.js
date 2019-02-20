@@ -5,7 +5,7 @@ import Comment from '../presentational/Comment';
 class CommentContainer extends Component {
   render() {
     return (
-      <Comment></Comment>
+      <Comment post={this.props.post}></Comment>
     )
   }
 }

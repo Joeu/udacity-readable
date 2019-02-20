@@ -34,11 +34,11 @@ export const fetchPostCommentsError = (error) => {
   }
 }
 
-export const updateVoteScore = (postId, option) => {
-  console.log("DISPATCHING", postId, option)
+export const updateVoteScore = (post, option) => {
+  console.log("DISPATCHING", post, option)
   return dispatch => {
     dispatch(updateVoteScoreBegin());
-    return apiService.updateVoteScore(postId, option)
+    return apiService.updateVoteScore(post, option)
       .then(response => {
         dispatch(updateVoteScoreSuccess(response));
       }).catch(error => 

@@ -31,14 +31,13 @@ export const fetchPostComments = (postId) =>
     .then(data => data)
 
 // Vote Score
-export const updateVoteScore = (postId, option) =>
-  fetch(`${baseUrl}/posts/${postId}`, {
+export const updateVoteScore = (post, option) =>
+  fetch(`${baseUrl}/posts/${post.id}`, {
     method: 'post',
-    credentials: 'include',
-    headers: { headers },
-    body: {
-      "option": option
-    }
+    headers: {
+      ...headers,
+    },
+    body: JSON.stringify(option)
   })
     .then(res => res.json())
     .then(data => data)

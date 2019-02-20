@@ -1,11 +1,11 @@
 import React from 'react';
-import TextContentContent from '../container/TextContentContainer';
+import TextContentContainer from '../container/TextContentContainer';
 import '../../styles/Comment.css';
 
 const Comment = (props) => {
   return (
     <div className='comment'>
-      <TextContentContent post={props.comment}></TextContentContent>
+      <TextContentContainer post={props.comment}></TextContentContainer>
     </div>
   )
 }

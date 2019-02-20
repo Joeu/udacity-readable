@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  updateVoteScore: (postId, option) => dispatch(updateVoteScore(postId, option))
+  updateVoteScore: (post, option) => dispatch(updateVoteScore(post, option))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextContentContainer);
