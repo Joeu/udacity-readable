@@ -21,8 +21,7 @@ const postsReducer = (state = {}, action) => {
       }
 
     case types.UPDATE_POST_VOTE_SCORE_BEGIN:
-      console.log("ACTION", action);
-      const _value = action.option === 'upVote' ? 1 : - 1;
+      const _value = action.option.option === 'upVote' ? 1 : - 1;
       return {
         ...state,
         posts: state.posts.map(
