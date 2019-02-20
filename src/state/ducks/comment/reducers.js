@@ -19,22 +19,18 @@ const commentsReducer = (state = {}, action) => {
         error: action.error,
         comments: []
       }
-    default:
-      return state
-  }
-}
-
-const voteScoreReducer = (state = {}, action) => {
-  switch (action.type) {
-    case types.UPDATE_VOTE_SCORE_BEGIN:
+    case types.UPDATE_COMMENT_VOTE_SCORE_BEGIN:
+      const _value = action.option.option === 'upVote' ? 1 : - 1;
+      return Object.values(state).map(
+        (comment) => comment.id === action.comment.id 
+          ? Object.assign({}, comment, {voteScore: comment.voteScore + _value})
+          : comment
+      )
+    case types.UPDATE_COMMENT_VOTE_SCORE_SUCCESS:
       return {
         ...state,
       }
-    case types.UPDATE_VOTE_SCORE_SUCCESS:
-      return {
-        ...state,
-      }
-    case types.UPDATE_VOTE_SCORE_ERROR:
+    case types.UPDATE_COMMENT_VOTE_SCORE_ERROR:
       return {
         ...state,
         error: action.error,
@@ -46,5 +42,4 @@ const voteScoreReducer = (state = {}, action) => {
 
 export default combineReducers({
   commentsReducer,
-  voteScoreReducer
 });

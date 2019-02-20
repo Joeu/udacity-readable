@@ -31,8 +31,8 @@ export const fetchPostComments = (postId) =>
     .then(data => data)
 
 // Vote Score
-export const updateVoteScore = (post, option) =>
-  fetch(`${baseUrl}/posts/${post.id}`, {
+export const updateVoteScore = (type, post, option) =>
+  fetch(`${baseUrl}/${type}/${post.id}`, {
     method: 'post',
     headers: {
       ...headers,

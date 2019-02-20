@@ -40,7 +40,7 @@ export const fetchAllPostsError = (error) => {
 export const updatePostVoteScore = (post, option) => {
   return (dispatch) => {
     dispatch(updatePostVoteScoreBegin(post, option));
-    return apiService.updateVoteScore(post, option)
+    return apiService.updateVoteScore('posts', post, option)
       .then(response => {
         dispatch(updatePostVoteScoreSuccess(response));
       }).catch(error => 

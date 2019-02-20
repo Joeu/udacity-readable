@@ -34,36 +34,36 @@ export const fetchPostCommentsError = (error) => {
   }
 }
 
-export const updateVoteScore = (post, option) => {
+export const updateCommentVoteScore = (post, option) => {
   return dispatch => {
-    dispatch(updateVoteScoreBegin(post, option));
-    return apiService.updateVoteScore(post, option)
+    dispatch(updateCommentVoteScoreBegin(post, option));
+    return apiService.updateVoteScore('comments', post, option)
       .then(response => {
-        dispatch(updateVoteScoreSuccess(response));
+        dispatch(updateCommentVoteScoreSuccess(response));
       }).catch(error => 
-        dispatch(updateVoteScoreError(error)
+        dispatch(updateCommentVoteScoreError(error)
     ));
   }
 }
 
-export const updateVoteScoreBegin = (post, option) => {
+export const updateCommentVoteScoreBegin = (comment, option) => {
   return {
-    type: types.UPDATE_VOTE_SCORE_BEGIN,
-    post,
+    type: types.UPDATE_COMMENT_VOTE_SCORE_BEGIN,
+    comment,
     option
   }
 }
 
-export const updateVoteScoreSuccess = (comments) => {
+export const updateCommentVoteScoreSuccess = (comments) => {
   return {
-    type: types.UPDATE_VOTE_SCORE_SUCCESS,
+    type: types.UPDATE_COMMENT_VOTE_SCORE_SUCCESS,
     comments
   }
 }
 
-export const updateVoteScoreError = (error) => {
+export const updateCommentVoteScoreError = (error) => {
   return {
-    type: types.UPDATE_VOTE_SCORE_ERROR,
+    type: types.UPDATE_COMMENT_VOTE_SCORE_ERROR,
     error
   }
 }

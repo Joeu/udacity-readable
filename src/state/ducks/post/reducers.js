@@ -45,5 +45,5 @@ const postsReducer = (state = {}, action) => {
 }
 
 export default combineReducers({
-  postsReducer,
+  postsReducer
 });
