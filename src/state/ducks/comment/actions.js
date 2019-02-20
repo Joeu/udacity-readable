@@ -35,9 +35,8 @@ export const fetchPostCommentsError = (error) => {
 }
 
 export const updateVoteScore = (post, option) => {
-  console.log("DISPATCHING", post, option)
   return dispatch => {
-    dispatch(updateVoteScoreBegin());
+    dispatch(updateVoteScoreBegin(post, option));
     return apiService.updateVoteScore(post, option)
       .then(response => {
         dispatch(updateVoteScoreSuccess(response));
@@ -47,9 +46,11 @@ export const updateVoteScore = (post, option) => {
   }
 }
 
-export const updateVoteScoreBegin = () => {
+export const updateVoteScoreBegin = (post, option) => {
   return {
-    type: types.UPDATE_VOTE_SCORE_BEGIN
+    type: types.UPDATE_VOTE_SCORE_BEGIN,
+    post,
+    option
   }
 }
 

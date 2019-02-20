@@ -16,7 +16,7 @@ const filterPosts = (posts, category) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  posts: state.posts.posts && filterPosts(state.posts.posts, ownProps.location.pathname.split('/')[1])
+  posts: state.posts.postsReducer.posts && filterPosts(state.posts.postsReducer.posts, ownProps.location.pathname.split('/')[1])
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

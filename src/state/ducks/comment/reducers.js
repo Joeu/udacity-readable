@@ -47,4 +47,4 @@ const voteScoreReducer = (state = {}, action) => {
 export default combineReducers({
   commentsReducer,
   voteScoreReducer
-}); 
+});

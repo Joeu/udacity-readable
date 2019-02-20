@@ -11,7 +11,7 @@ class HomeContainer extends Component {
 } 
 
 const mapStateToProps = (state) => ({
-  posts: state.posts.posts
+  posts: state.posts.postsReducer.posts
 });
 
 export default connect(mapStateToProps)(HomeContainer);

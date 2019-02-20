@@ -4,7 +4,7 @@ import avatar from '../../images/avatar-placeholder.png'
 
 const Comment = (props) => {
   const handleVoteUpdate = (option) =>{
-    props.updateVoteScore(props.post, option);
+    props.updatePostVoteScore(props.post, option);
   }
 
   return (

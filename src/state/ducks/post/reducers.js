@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import * as types from './types';
 
 const postsReducer = (state = {}, action) => {
@@ -18,9 +19,32 @@ const postsReducer = (state = {}, action) => {
         error: action.error,
         posts: []
       }
+
+    case types.UPDATE_POST_VOTE_SCORE_BEGIN:
+      console.log("ACTION", action);
+      const _value = action.option === 'upVote' ? 1 : - 1;
+      return {
+        ...state,
+        posts: state.posts.map(
+          (post) => post.id === action.post.id 
+            ? {...post, voteScore: post.voteScore + _value}
+            : post
+        )
+      }
+    case types.UPDATE_POST_VOTE_SCORE_SUCCESS:
+      return {
+        ...state,
+      }
+    case types.UPDATE_POST_VOTE_SCORE_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      }
     default:
       return state
   }
 }
 
-export default postsReducer;
+export default combineReducers({
+  postsReducer,
+});
