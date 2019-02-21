@@ -3,9 +3,21 @@ import { connect } from 'react-redux';
 import Post from '../presentational/Post';
 
 class PostContainer extends Component {
+  
+  // Toggle display comments
+  state = {
+    displayComments: false
+  }
+
+  toggleComments = () => {
+    this.setState(() => ({
+      displayComments: !this.state.displayComments
+    }));
+  }
+
   render() {
     return (
-      <Post post={this.props.post} comments={this.props.comments}></Post>
+      <Post post={this.props.post} toggleComments={this.toggleComments} displayComments={this.state.displayComments} comments={this.props.comments}></Post>
     )
   }
 }

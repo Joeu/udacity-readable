@@ -6,16 +6,29 @@ import { updateCommentVoteScore } from '../../../state/ducks/comment/actions';
 
 
 class TextContentContainer extends Component {
+  state = {
+    active: false
+  }
+
+  toggleNewTextContent = () => {
+    this.setState(() => ({
+      active: !this.state.active
+    }));
+  }
+
   render() {
     return (
       <TextContent 
         updatePostVoteScore={this.props.updatePostVoteScore}
         updateCommentVoteScore={this.props.updateCommentVoteScore}
+        toggleNewTextContent={this.toggleNewTextContent}
+        active={this.state.active}
         post={this.props.post}>
       </TextContent>
     )
   }
 }
+
 
 const mapStateToProps = (state, ownProps) => ({
   state,
