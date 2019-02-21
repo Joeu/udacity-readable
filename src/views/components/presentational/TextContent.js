@@ -1,7 +1,7 @@
 import React from 'react';
 import { Media } from 'react-bootstrap';
 import avatar from '../../images/avatar-placeholder.png';
-import NewTextContent from './NewTextContent';
+import TextFormContainer from '../container/TextFormContainer';
 
 const Comment = (props) => {
   const handleVoteUpdate = (option) => {
@@ -43,7 +43,7 @@ const Comment = (props) => {
         </Media.Body>
       </Media>
       {props.active 
-        && <NewTextContent></NewTextContent>
+        && <TextFormContainer></TextFormContainer>
       }
     </div>
   )

@@ -67,3 +67,35 @@ export const updateCommentVoteScoreError = (error) => {
     error
   }
 }
+
+export const postComment = (postId) => {
+  return dispatch => {
+    dispatch(postCommentBegin());
+    return apiService.postComment(postId)
+      .then(response => {
+        dispatch(postCommentSuccess(response));
+        return response;
+      }).catch(error =>
+        dispatch(postCommentError(error)
+    ));
+  }
+}
+
+export const postCommentBegin = (comment, postId) => {
+  return {
+    type: types.POST_COMMENT_BEGIN,
+    comment,
+  }
+}
+
+export const postCommentSuccess = () => {
+  return {
+    type: types.POST_COMMENT_SUCCESS,
+  }
+}
+
+export const postCommentError = () => {
+  return {
+    type: types.POST_COMMENT_ERROR,
+  }
+}

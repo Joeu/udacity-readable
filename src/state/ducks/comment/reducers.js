@@ -3,6 +3,7 @@ import * as types from './types';
 
 const commentsReducer = (state = {}, action) => {
   switch (action.type) {
+    // GET COMMENTS
     case types.FETCH_COMMENTS_BEGIN:
       return {
         ...state,
@@ -19,11 +20,12 @@ const commentsReducer = (state = {}, action) => {
         error: action.error,
         comments: []
       }
+    // UP/DOWN VOTE A COMMENT
     case types.UPDATE_COMMENT_VOTE_SCORE_BEGIN:
       const _value = action.option.option === 'upVote' ? 1 : - 1;
       return Object.values(state).map(
-        (comment) => comment.id === action.comment.id 
-          ? Object.assign({}, comment, {voteScore: comment.voteScore + _value})
+        (comment) => comment.id === action.comment.id
+          ? Object.assign({}, comment, { voteScore: comment.voteScore + _value })
           : comment
       )
     case types.UPDATE_COMMENT_VOTE_SCORE_SUCCESS:
@@ -31,6 +33,20 @@ const commentsReducer = (state = {}, action) => {
         ...state,
       }
     case types.UPDATE_COMMENT_VOTE_SCORE_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      }
+    // POST A COMMENT
+    case types.POST_COMMENT_BEGIN:
+      return {
+        ...state
+      }
+    case types.POST_COMMENT_SUCCESS:
+      return {
+        ...state,
+      }
+    case types.POST_COMMENT_ERROR:
       return {
         ...state,
         error: action.error,

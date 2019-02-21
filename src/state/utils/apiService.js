@@ -30,6 +30,17 @@ export const fetchPostComments = (postId) =>
     .then(res => res.json())
     .then(data => data)
 
+export const postComment = (comment, postId) =>
+  fetch(`${baseUrl}/comments`, {
+    method: 'post',
+    headers: {
+      ...headers,
+    },
+    body: JSON.stringify(comment)
+  })
+    .then(res => res.json())
+    .then(data => data)
+
 // Vote Score
 export const updateVoteScore = (type, post, option) =>
   fetch(`${baseUrl}/${type}/${post.id}`, {
