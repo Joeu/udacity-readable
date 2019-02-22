@@ -10,10 +10,10 @@ const TextForm = (props) => {
           <Form.Text className="text-muted">
             Create new Comment
           </Form.Text>
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="text" placeholder="Title" />
-          <Form.Label>Author</Form.Label>
-          <Form.Control type="text" placeholder="Author" />
+          {/* <Form.Label>Title</Form.Label>
+          <Form.Control type="text" placeholder="Title" /> */}
+          <Form.Text>Author</Form.Text>
+          <Form.Control type="text" placeholder="Author" value={props.newComment.author} />
           <Form.Label>Content</Form.Label>
           <Form.Control as="textarea" rows="3" />
         </Form.Group>
