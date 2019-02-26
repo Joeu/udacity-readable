@@ -7,6 +7,8 @@ class TextFormContainer extends Component {
   constructor(props) {
     super(props);
 
+    console.log(props);
+
     this.state = {
       id: this.uuidv4(),
       author: '',
@@ -15,8 +17,7 @@ class TextFormContainer extends Component {
       parentId: props.parentId
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleAuthorChange = this.handleAuthorChange.bind(this);
-    this.handleContentChange = this.handleContentChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
   }
 
@@ -27,14 +28,14 @@ class TextFormContainer extends Component {
     });
   }
 
-  handleAuthorChange = (e) => {
-    e.preventDefault();
-    this.setState({author: e.target.value});
-  }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-  handleContentChange = (e) => {
-    e.preventDefault();
-    this.setState({body: e.target.value});
+    this.setState({
+      [name]: value
+    });
   }
 
   handleSubmit = (e) => {
@@ -55,8 +56,7 @@ class TextFormContainer extends Component {
     return (
       <TextForm 
         handleSubmit={this.handleSubmit} 
-        handleAuthorChange={this.handleAuthorChange}
-        handleContentChange={this.handleContentChange}>
+        handleInputChange={this.handleInputChange}>
       </TextForm>
     )
   }

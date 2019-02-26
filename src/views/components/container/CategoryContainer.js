@@ -4,9 +4,19 @@ import Category from '../presentational/Category';
 import { fetchCategoryPosts } from '../../../state/ducks/category/actions';
 
 class CategoryContainer extends Component {
+  state = {
+    active: false
+  }
+
+  toggleNewTextContent = () => {
+    this.setState(() => ({
+      active: !this.state.active
+    }));
+  }
+
   render() {
     return (
-      <Category posts={this.props.posts}></Category>
+      <Category posts={this.props.posts} active={this.state.active} toggleNewTextContent={this.toggleNewTextContent}></Category>
     )
   }
 } 
