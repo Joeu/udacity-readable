@@ -68,10 +68,10 @@ export const updateCommentVoteScoreError = (error) => {
   }
 }
 
-export const postComment = (postId) => {
+export const postComment = (comment) => {
   return dispatch => {
     dispatch(postCommentBegin());
-    return apiService.postComment(postId)
+    return apiService.postComment(comment)
       .then(response => {
         dispatch(postCommentSuccess(response));
         return response;
@@ -81,16 +81,17 @@ export const postComment = (postId) => {
   }
 }
 
-export const postCommentBegin = (comment, postId) => {
+export const postCommentBegin = (comment) => {
   return {
     type: types.POST_COMMENT_BEGIN,
     comment,
   }
 }
 
-export const postCommentSuccess = () => {
+export const postCommentSuccess = (comment) => {
   return {
     type: types.POST_COMMENT_SUCCESS,
+    comment
   }
 }
 

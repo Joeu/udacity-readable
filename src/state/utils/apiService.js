@@ -30,7 +30,7 @@ export const fetchPostComments = (postId) =>
     .then(res => res.json())
     .then(data => data)
 
-export const postComment = (comment, postId) =>
+export const postComment = (comment) =>
   fetch(`${baseUrl}/comments`, {
     method: 'post',
     headers: {

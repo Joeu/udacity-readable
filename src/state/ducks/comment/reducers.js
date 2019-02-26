@@ -43,9 +43,7 @@ const commentsReducer = (state = {}, action) => {
         ...state
       }
     case types.POST_COMMENT_SUCCESS:
-      return {
-        ...state,
-      }
+      return Object.values(state).concat([action.comment])
     case types.POST_COMMENT_ERROR:
       return {
         ...state,

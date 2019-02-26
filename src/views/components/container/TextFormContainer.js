@@ -8,50 +8,66 @@ class TextFormContainer extends Component {
     super(props);
 
     this.state = {
-      newComent: {
-        author: '',
-        body: '',
-        timestamp: '',
-        parentId: ''
-      },
-
+      id: this.uuidv4(),
+      author: '',
+      body: '',
+      timestamp: Date.now(),
+      parentId: props.parentId
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleAuthorChange = this.handleAuthorChange.bind(this);
+    this.handleContentChange = this.handleContentChange.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
   }
 
-  handleChange = (e) => {
+  uuidv4 = () => {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r && 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
+  handleAuthorChange = (e) => {
     e.preventDefault();
-    console.log(e.target);
-    console.log(e.target.values);
+    this.setState({author: e.target.value});
+  }
+
+  handleContentChange = (e) => {
+    e.preventDefault();
+    this.setState({body: e.target.value});
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
-    console.log(e.target.values);
+    this.props.postComment(this.state);
   }
 
   handleClearForm = (e) => {
     e.preventDefault();
-    console.log(e.target);
-    console.log(e.target.values);
+    this.setState({
+      author: '',
+      body: '',
+      timestamp: ''
+    })
   }
 
   render() {
     return (
-      <TextForm newComment={this.state.newComent} handleSubmit={this.handleSubmit}></TextForm>
+      <TextForm 
+        handleSubmit={this.handleSubmit} 
+        handleAuthorChange={this.handleAuthorChange}
+        handleContentChange={this.handleContentChange}>
+      </TextForm>
     )
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  state,
-});
+// const mapStateToProps = (state, ownProps) => ({
+//   // state,
+// });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   postComment: (content) => dispatch(postComment(content)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TextFormContainer);
+export default connect(null, mapDispatchToProps)(TextFormContainer);
