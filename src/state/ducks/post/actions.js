@@ -70,3 +70,36 @@ export const updatePostVoteScoreError = (error) => {
     error
   }
 }
+
+export const deletePost = (commentId) => {
+  return dispatch => {
+    dispatch(deletePostBegin(commentId));
+    return apiService.deletePost(commentId)
+      .then(response => {
+        dispatch(deletePostSuccess(response));
+        return response;
+      }).catch(error =>
+        dispatch(deletePostError(error)
+    ));
+  }
+}
+
+export const deletePostBegin = (commentId) => {
+  return {
+    type: types.DELETE_POST_BEGIN,
+    id: commentId
+  }
+}
+
+export const deletePostSuccess = (commentId) => {
+  return {
+    type: types.DELETE_POST_SUCCESS,
+    id: commentId
+  }
+}
+
+export const deletePostError = () => {
+  return {
+    type: types.DELETE_POST_ERROR,
+  }
+}

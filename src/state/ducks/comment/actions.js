@@ -100,3 +100,36 @@ export const postCommentError = () => {
     type: types.POST_COMMENT_ERROR,
   }
 }
+
+export const deleteComment = (commentId) => {
+  return dispatch => {
+    dispatch(deleteCommentBegin(commentId));
+    return apiService.deleteComment(commentId)
+      .then(response => {
+        dispatch(deleteCommentSuccess(response));
+        return response;
+      }).catch(error =>
+        dispatch(deleteCommentError(error)
+    ));
+  }
+}
+
+export const deleteCommentBegin = (commentId) => {
+  return {
+    type: types.DELETE_COMMENT_BEGIN,
+    id: commentId
+  }
+}
+
+export const deleteCommentSuccess = (commentId) => {
+  return {
+    type: types.DELETE_COMMENT_SUCCESS,
+    id: commentId
+  }
+}
+
+export const deleteCommentError = () => {
+  return {
+    type: types.DELETE_COMMENT_ERROR,
+  }
+}

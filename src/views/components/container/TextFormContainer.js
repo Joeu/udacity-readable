@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextForm from '../presentational/TextForm';
-import { postComment } from '../../../state/ducks/comment/actions';
+import { postComment, deleteComment } from '../../../state/ducks/comment/actions';
 
 class TextFormContainer extends Component {
   constructor(props) {
@@ -40,10 +40,10 @@ class TextFormContainer extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.postComment(this.state);
+    this.handleClearForm();
   }
 
-  handleClearForm = (e) => {
-    e.preventDefault();
+  handleClearForm = () => {
     this.setState({
       author: '',
       body: '',
@@ -68,6 +68,7 @@ class TextFormContainer extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   postComment: (content) => dispatch(postComment(content)),
+  deleteComment: (content) => dispatch(deleteComment(content)),
 })
 
 export default connect(null, mapDispatchToProps)(TextFormContainer);

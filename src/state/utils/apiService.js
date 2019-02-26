@@ -41,6 +41,27 @@ export const postComment = (comment) =>
     .then(res => res.json())
     .then(data => data)
 
+
+export const deleteComment = (commentId) =>
+  fetch(`${baseUrl}/comments/${commentId}`, {
+    method: 'delete',
+    headers: {
+      ...headers,
+    }
+  })
+    .then(res => res.json())
+    .then(data => data)
+
+export const deletePost = (postId) =>
+  fetch(`${baseUrl}/posts/${postId}`, {
+    method: 'delete',
+    headers: {
+      ...headers,
+    }
+  })
+    .then(res => res.json())
+    .then(data => data)
+
 // Vote Score
 export const updateVoteScore = (type, post, option) =>
   fetch(`${baseUrl}/${type}/${post.id}`, {

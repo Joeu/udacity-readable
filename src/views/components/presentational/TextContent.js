@@ -10,6 +10,12 @@ const Comment = (props) => {
       : props.updateCommentVoteScore(props.post, option);
   }
 
+  const handleDelete = (id) => {
+    props.post.category
+      ? props.deletePost(id)
+      : props.deleteComment(id);
+  }
+
   const toggleNewTextContent = () => {
     props.toggleNewTextContent();
   }
@@ -38,7 +44,10 @@ const Comment = (props) => {
                 </button>
             }
             <button className='btn'><i className='fa fa-edit'></i></button>
-            <button className='btn'><i className='fa fa-trash'></i></button>
+            <button className='btn' 
+              onClick={() => handleDelete(props.post.id)}>
+              <i className='fa fa-trash'></i>
+            </button>
           </div>
         </Media.Body>
       </Media>

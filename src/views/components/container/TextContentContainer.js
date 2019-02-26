@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextContent from '../presentational/TextContent';
-import { updatePostVoteScore } from '../../../state/ducks/post/actions';
-import { updateCommentVoteScore } from '../../../state/ducks/comment/actions';
+import { updatePostVoteScore, deletePost } from '../../../state/ducks/post/actions';
+import { updateCommentVoteScore, deleteComment } from '../../../state/ducks/comment/actions';
 
 
 class TextContentContainer extends Component {
@@ -21,6 +21,8 @@ class TextContentContainer extends Component {
       <TextContent 
         updatePostVoteScore={this.props.updatePostVoteScore}
         updateCommentVoteScore={this.props.updateCommentVoteScore}
+        deletePost={this.props.deletePost}
+        deleteComment={this.props.deleteComment}
         toggleNewTextContent={this.toggleNewTextContent}
         active={this.state.active}
         post={this.props.post}>
@@ -36,7 +38,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   updatePostVoteScore: (post, option) => dispatch(updatePostVoteScore(post, option)),
-  updateCommentVoteScore: (comment, option) => dispatch(updateCommentVoteScore(comment, option))
+  updateCommentVoteScore: (comment, option) => dispatch(updateCommentVoteScore(comment, option)),
+  deletePost: (postId) => dispatch(deletePost(postId)),
+  deleteComment: (commentId) => dispatch(deleteComment(commentId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextContentContainer);

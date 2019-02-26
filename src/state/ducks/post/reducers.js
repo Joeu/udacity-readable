@@ -39,6 +39,18 @@ const postsReducer = (state = {}, action) => {
         ...state,
         error: action.error,
       }
+    // DELETE A POST
+    case types.DELETE_POST_BEGIN:
+      return Object.values(state).filter(post => post.id !== action.id);
+    case types.DELETE_POST_SUCCESS:
+      return {
+        ...state
+      }
+    case types.DELETE_POST_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      }
     default:
       return state
   }
