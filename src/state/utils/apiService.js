@@ -41,13 +41,23 @@ export const postComment = (comment) =>
     .then(res => res.json())
     .then(data => data)
 
-
 export const deleteComment = (commentId) =>
   fetch(`${baseUrl}/comments/${commentId}`, {
     method: 'delete',
     headers: {
       ...headers,
     }
+  })
+    .then(res => res.json())
+    .then(data => data)
+
+export const addPost = (post) =>
+  fetch(`${baseUrl}/posts`, {
+    method: 'post',
+    headers: {
+      ...headers,
+    },
+    body: JSON.stringify(post)
   })
     .then(res => res.json())
     .then(data => data)

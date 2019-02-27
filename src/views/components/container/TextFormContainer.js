@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextForm from '../presentational/TextForm';
-import { postComment, deleteComment } from '../../../state/ducks/comment/actions';
+import { postComment } from '../../../state/ducks/comment/actions';
+import { addPost } from '../../../state/ducks/post/actions';
 
 class TextFormContainer extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class TextFormContainer extends Component {
       author: '',
       body: '',
       timestamp: Date.now(),
+      category: props.category,
       parentId: props.parentId
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,8 +42,10 @@ class TextFormContainer extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.postComment(this.state);
     this.handleClearForm();
+    this.props.isPost
+      ? this.props.addPost(this.state)
+      : this.props.postComment(this.state);
   }
 
   handleClearForm = () => {
@@ -63,13 +67,9 @@ class TextFormContainer extends Component {
   }
 }
 
-// const mapStateToProps = (state, ownProps) => ({
-//   // state,
-// });
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
   postComment: (content) => dispatch(postComment(content)),
-  deleteComment: (content) => dispatch(deleteComment(content)),
+  addPost: (post) => dispatch(addPost(post)),
 })
 
 export default connect(null, mapDispatchToProps)(TextFormContainer);

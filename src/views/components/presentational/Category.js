@@ -10,25 +10,23 @@ const Category = (props) => {
     props.toggleNewTextContent();
   }
 
-  if (props.posts && props.posts.length > 0) {
-    return (
-      <div>
+  return (
+    <div>
+    {props.posts && props.posts.length > 0
+    ? <div>
         <div>
           {props.posts.map(post => <PostContainer key={post.id} post={post}></PostContainer>)}
         </div>
-        <Button className='float-add-button' onClick={() => toggleNewTextContent()} variant='dark'>+</Button>
-        {props.active
-          && <TextFormContainer isPost={true}></TextFormContainer>}
       </div>
-    )
-  } else {
-    return (
-      <div>
+    : <div>
         <NoText />
-        <Button className='float-add-button' variant='dark'>+</Button>
       </div>
-    )
-  }
+    }
+    <Button className='float-add-button' onClick={() => toggleNewTextContent()} variant='dark'>+</Button>
+    {props.active
+      && <TextFormContainer category={props.category} isPost={true}></TextFormContainer>}
+    </div>
+  )
 }
 
 export default Category;

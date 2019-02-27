@@ -71,10 +71,43 @@ export const updatePostVoteScoreError = (error) => {
   }
 }
 
-export const deletePost = (commentId) => {
+export const addPost = (post) => {
   return dispatch => {
-    dispatch(deletePostBegin(commentId));
-    return apiService.deletePost(commentId)
+    dispatch(addPostBegin());
+    return apiService.addPost(post)
+      .then(response => {
+        dispatch(addPostSuccess(response));
+        return response;
+      }).catch(error =>
+        dispatch(addPostError(error)
+    ));
+  }
+}
+
+export const addPostBegin = (post) => {
+  return {
+    type: types.ADD_POST_BEGIN,
+    post,
+  }
+}
+
+export const addPostSuccess = (post) => {
+  return {
+    type: types.ADD_POST_SUCCESS,
+    post
+  }
+}
+
+export const addPostError = () => {
+  return {
+    type: types.ADD_POST_ERROR,
+  }
+}
+
+export const deletePost = (postId) => {
+  return dispatch => {
+    dispatch(deletePostBegin(postId));
+    return apiService.deletePost(postId)
       .then(response => {
         dispatch(deletePostSuccess(response));
         return response;
@@ -84,17 +117,17 @@ export const deletePost = (commentId) => {
   }
 }
 
-export const deletePostBegin = (commentId) => {
+export const deletePostBegin = (postId) => {
   return {
     type: types.DELETE_POST_BEGIN,
-    id: commentId
+    id: postId
   }
 }
 
-export const deletePostSuccess = (commentId) => {
+export const deletePostSuccess = (post) => {
   return {
     type: types.DELETE_POST_SUCCESS,
-    id: commentId
+    id: post.id
   }
 }
 

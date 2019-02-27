@@ -1,37 +1,31 @@
 import React from 'react';
-// import { Form, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import '../../styles/TextForm.css';
 
 const TextForm = (props) => {
-  // console.log(props);
   return (
-    <div>
-      <form onSubmit={props.handleSubmit}>
-        {props.isPost
-        && <label>
-          Title:
-          <input type="text" 
-            value={props.author} 
-            name="author" 
-            onChange={props.handleInputChange} />
-        </label>}
-        <label>
-          Author:
-          <input type="text" 
-            value={props.author} 
-            name="author" 
-            onChange={props.handleInputChange} />
-        </label>
-        <label>
-          Body:
-          <textarea type="text" 
-            value={props.body} 
-            name="body" 
-            onChange={props.handleInputChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
+    <Form className='form-container' onSubmit={props.handleSubmit}>
+      {props.isPost
+        &&
+        <Form.Group>
+          <Form.Label>Title</Form.Label>
+          <Form.Control type="text" name='title' placeholder="Title" onChange={props.handleInputChange} />
+        </Form.Group>
+      }
+      <Form.Group>
+        <Form.Label>Author</Form.Label>
+        <Form.Control type="text" name='author' placeholder="Author" onChange={props.handleInputChange} />
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Label>Content</Form.Label>
+        <Form.Control as='textarea' name='body' type="text" onChange={props.handleInputChange} />
+      </Form.Group>
+
+      <Button variant="dark" type="submit">
+        Submit
+      </Button>
+    </Form>
   )
 }
 

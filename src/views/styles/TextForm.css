@@ -1,4 +1,10 @@
+.form-container {
+  margin: auto;
+  text-align: left;
+  width: 70%;
+}
+
 .submit-button {
-  display: flex;
+  display: block;
   justify-content: flex-end;
 }

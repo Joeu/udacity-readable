@@ -39,9 +39,29 @@ const postsReducer = (state = {}, action) => {
         ...state,
         error: action.error,
       }
+    // POST A COMMENT
+    case types.ADD_POST_BEGIN:
+      return {
+        ...state
+      }
+    case types.ADD_POST_SUCCESS:
+      let _posts = Object.values(state)[0].concat(action.post)
+      return {
+        ...state,
+        posts: _posts
+      }
+    case types.ADD_POST_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      }
     // DELETE A POST
     case types.DELETE_POST_BEGIN:
-      return Object.values(state).filter(post => post.id !== action.id);
+      let _remainingPosts = Object.values(state.posts).filter(post => post.id !== action.id);
+      return {
+        ...state,
+        posts: _remainingPosts
+      }
     case types.DELETE_POST_SUCCESS:
       return {
         ...state
