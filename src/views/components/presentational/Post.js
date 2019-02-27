@@ -11,8 +11,16 @@ const Post = (props) => {
   return (
     <div className='post-container'>
       <TextContentContainer post={props.post}></TextContentContainer>
-      {props.comments.length > 0 && <button onClick={() => toggleComments()}>Display Comments - total: {props.comments.length}</button>}
-      {props.displayComments && props.comments && props.comments.map(comment => <Comment key={comment.id} comment={comment}></Comment>)}
+      {props.comments.length > 0 
+        && <button className='btn' onClick={() => toggleComments()}>
+            <i class="fas fa-list-ol"></i> {props.comments.length}
+          </button>
+        }
+      {props.displayComments 
+        && props.comments 
+        && props.comments.map(comment => 
+          <Comment key={comment.id} comment={comment}></Comment>
+        )}
     </div>
   )
 }
