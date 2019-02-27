@@ -55,6 +55,7 @@ class TextFormContainer extends Component {
   render() {
     return (
       <TextForm 
+        isPost={this.props.isPost}
         handleSubmit={this.handleSubmit} 
         handleInputChange={this.handleInputChange}>
       </TextForm>

@@ -7,13 +7,14 @@ const TextForm = (props) => {
   return (
     <div>
       <form onSubmit={props.handleSubmit}>
-        <label>
+        {props.isPost
+        && <label>
           Title:
           <input type="text" 
             value={props.author} 
             name="author" 
             onChange={props.handleInputChange} />
-        </label>
+        </label>}
         <label>
           Author:
           <input type="text" 

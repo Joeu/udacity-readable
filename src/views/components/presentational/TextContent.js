@@ -52,7 +52,7 @@ const Comment = (props) => {
         </Media.Body>
       </Media>
       {props.active 
-        && <TextFormContainer parentId={props.post.id}></TextFormContainer>
+        && <TextFormContainer isPost={false} parentId={props.post.id}></TextFormContainer>
       }
     </div>
   )

@@ -18,7 +18,7 @@ const Category = (props) => {
         </div>
         <Button className='float-add-button' onClick={() => toggleNewTextContent()} variant='dark'>+</Button>
         {props.active
-          && <TextFormContainer></TextFormContainer>}
+          && <TextFormContainer isPost={true}></TextFormContainer>}
       </div>
     )
   } else {
