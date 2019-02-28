@@ -8,12 +8,13 @@ import * as helper from '../../../state/utils/helpers';
 class TextFormContainer extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
 
     this.state = {
       id: helper.uuidv4(),
-      author: '',
-      body: '',
-      timestamp: Date.now(),
+      author: props.edit ? props.post.author : '',
+      body: props.edit ? props.post.body : '',
+      timestamp: props.edit ? props.post.timestamp : Date.now(),
       category: props.category,
       parentId: props.parentId
     }
@@ -53,7 +54,9 @@ class TextFormContainer extends Component {
       <TextForm 
         isPost={this.props.isPost}
         handleSubmit={this.handleSubmit} 
-        handleInputChange={this.handleInputChange}>
+        handleInputChange={this.handleInputChange}
+        edit={this.props.edit}
+        post={this.state}>
       </TextForm>
     )
   }

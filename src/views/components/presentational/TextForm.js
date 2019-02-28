@@ -9,17 +9,32 @@ const TextForm = (props) => {
         &&
         <Form.Group>
           <Form.Label>Title</Form.Label>
-          <Form.Control type="text" name='title' placeholder="Title" onChange={props.handleInputChange} />
+          <Form.Control 
+            type="text" 
+            name='title' 
+            placeholder="Title" 
+            value={props.edit ? props.post.title : ''}
+            onChange={props.handleInputChange} />
         </Form.Group>
       }
       <Form.Group>
         <Form.Label>Author</Form.Label>
-        <Form.Control type="text" name='author' placeholder="Author" onChange={props.handleInputChange} />
+        <Form.Control 
+          type="text" 
+          name='author' 
+          placeholder="Author" 
+          value={props.edit ? props.post.author : ''}
+          onChange={props.handleInputChange} />
       </Form.Group>
 
       <Form.Group>
         <Form.Label>Content</Form.Label>
-        <Form.Control as='textarea' name='body' type="text" onChange={props.handleInputChange} />
+        <Form.Control 
+          as='textarea' 
+          name='body' 
+          type="text" 
+          value={props.edit ? props.post.body : ''}
+          onChange={props.handleInputChange} />
       </Form.Group>
 
       <Button variant="dark" type="submit">

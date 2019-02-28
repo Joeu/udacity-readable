@@ -22,6 +22,10 @@ const Comment = (props) => {
     props.toggleNewTextContent();
   }
 
+  const toggleEditTextContent = () => {
+    props.toggleEditTextContent();
+  }
+
   return (
     <div>
       <Media as='li'>
@@ -62,7 +66,9 @@ const Comment = (props) => {
                 </div> 
             }
             {/* EDIT TEXT */}
-            <button className='btn'><i className='fa fa-edit'></i></button>
+            <button className='btn' onClick={() => toggleEditTextContent()}>
+              <i className='fa fa-edit'></i>
+            </button>
             {/* DELETE TEXT */}
             <button className='btn' 
               onClick={() => handleDelete(props.post.id)}>
@@ -72,7 +78,12 @@ const Comment = (props) => {
         </Media.Body>
       </Media>
       {props.active 
-        && <TextFormContainer isPost={false} parentId={props.post.id}></TextFormContainer>
+        && <TextFormContainer 
+              isPost={false} 
+              edit={props.edit} 
+              post={props.post} 
+              parentId={props.post.id}>
+          </TextFormContainer>
       }
     </div>
   )

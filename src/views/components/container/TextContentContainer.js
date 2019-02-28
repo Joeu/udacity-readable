@@ -7,13 +7,22 @@ import { updateCommentVoteScore, deleteComment } from '../../../state/ducks/comm
 
 class TextContentContainer extends Component {
   state = {
-    active: false
+    active: false,
+    edit: false
   }
 
   toggleNewTextContent = () => {
     this.setState(() => ({
-      active: !this.state.active
+      active: !this.state.active,
+      edit: false
     }));
+  }
+
+  toggleEditTextContent = () => {
+    this.setState(() => ({
+      edit: !this.state.edit,
+      active: !this.state.edit
+    }))
   }
 
   render() {
@@ -24,7 +33,9 @@ class TextContentContainer extends Component {
         deletePost={this.props.deletePost}
         deleteComment={this.props.deleteComment}
         toggleNewTextContent={this.toggleNewTextContent}
+        toggleEditTextContent={this.toggleEditTextContent}
         active={this.state.active}
+        edit={this.state.edit}
         post={this.props.post}>
       </TextContent>
     )
