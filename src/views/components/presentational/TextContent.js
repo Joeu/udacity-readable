@@ -79,10 +79,10 @@ const Comment = (props) => {
       </Media>
       {props.active 
         && <TextFormContainer 
-              isPost={false} 
+              isPost={props.post.category ? true : false} 
               edit={props.edit} 
               post={props.post} 
-              parentId={props.post.id}>
+              parentId={props.post.category ? null : props.post.id}>
           </TextFormContainer>
       }
     </div>

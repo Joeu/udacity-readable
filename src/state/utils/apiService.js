@@ -30,13 +30,27 @@ export const fetchPostComments = (postId) =>
     .then(res => res.json())
     .then(data => data)
 
-export const postComment = (comment) =>
+export const addComment = (comment) =>
   fetch(`${baseUrl}/comments`, {
     method: 'post',
     headers: {
       ...headers,
     },
     body: JSON.stringify(comment)
+  })
+    .then(res => res.json())
+    .then(data => data)
+
+export const editComment = (comment) =>
+  fetch(`${baseUrl}/comments/${comment.id}`, {
+    method: 'put',
+    headers: {
+      ...headers,
+    },
+    body: JSON.stringify({
+      timestamp: Date.now(),
+      body: comment.body
+    })
   })
     .then(res => res.json())
     .then(data => data)
@@ -58,6 +72,20 @@ export const addPost = (post) =>
       ...headers,
     },
     body: JSON.stringify(post)
+  })
+    .then(res => res.json())
+    .then(data => data)
+
+export const editPost = (post, title) =>
+  fetch(`${baseUrl}/posts/${post.id}`, {
+    method: 'put',
+    headers: {
+      ...headers,
+    },
+    body: JSON.stringify({
+      title: title,
+      body: post.body
+    })
   })
     .then(res => res.json())
     .then(data => data)

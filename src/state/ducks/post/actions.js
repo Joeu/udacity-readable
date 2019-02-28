@@ -104,6 +104,40 @@ export const addPostError = () => {
   }
 }
 
+export const editPost = (post, title) => {
+  return dispatch => {
+    dispatch(editPostBegin(post, title));
+    console.log(post)
+    return apiService.editPost(post, title)
+      .then(response => {
+        dispatch(editPostSuccess(response));
+        return response;
+      }).catch(error =>
+        dispatch(editPostError(error)
+    ));
+  }
+}
+
+export const editPostBegin = (post) => {
+  return {
+    type: types.EDIT_POST_BEGIN,
+    post,
+  }
+}
+
+export const editPostSuccess = (post) => {
+  return {
+    type: types.EDIT_POST_SUCCESS,
+    post
+  }
+}
+
+export const editPostError = () => {
+  return {
+    type: types.EDIT_POST_ERROR,
+  }
+}
+
 export const deletePost = (postId) => {
   return dispatch => {
     dispatch(deletePostBegin(postId));

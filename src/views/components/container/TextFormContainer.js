@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextForm from '../presentational/TextForm';
-import { postComment } from '../../../state/ducks/comment/actions';
-import { addPost } from '../../../state/ducks/post/actions';
+import { addComment, editComment } from '../../../state/ducks/comment/actions';
+import { addPost, editPost } from '../../../state/ducks/post/actions';
 import * as helper from '../../../state/utils/helpers';
 
 class TextFormContainer extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
 
     this.state = {
-      id: helper.uuidv4(),
+      id: props.edit ? props.post.id : helper.uuidv4(),
+      title: props.edit ? props.post.title : '',
       author: props.edit ? props.post.author : '',
       body: props.edit ? props.post.body : '',
       timestamp: props.edit ? props.post.timestamp : Date.now(),
@@ -36,9 +36,24 @@ class TextFormContainer extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.handleClearForm();
+    this.props.edit
+      ? this._handleEdit()
+      : this._handleAdd()
+  }
+
+  _handleEdit = () => {
+    console.log("HANDLEEDIT");
+    console.log(this.props.isPost);
+    console.log(this.props.post);
     this.props.isPost
-      ? this.props.addPost(this.state)
-      : this.props.postComment(this.state);
+      ? this.props.editPost(this.state, this.props.post.title)
+      : this.props.editComment(this.state);
+  }
+
+  _handleAdd = () => {
+    this.props.isPost
+    ? this.props.addPost(this.state)
+    : this.props.addComment(this.state);
   }
 
   handleClearForm = () => {
@@ -63,8 +78,10 @@ class TextFormContainer extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  postComment: (content) => dispatch(postComment(content)),
+  addComment: (content) => dispatch(addComment(content)),
   addPost: (post) => dispatch(addPost(post)),
+  editComment: (content) => dispatch(editComment(content)),
+  editPost: (post, title) => dispatch(editPost(post, title))
 })
 
 export default connect(null, mapDispatchToProps)(TextFormContainer);

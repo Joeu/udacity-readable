@@ -39,7 +39,7 @@ const postsReducer = (state = {}, action) => {
         ...state,
         error: action.error,
       }
-    // POST A COMMENT
+    // ADD A POST
     case types.ADD_POST_BEGIN:
       return {
         ...state
@@ -51,6 +51,22 @@ const postsReducer = (state = {}, action) => {
         posts: _posts
       }
     case types.ADD_POST_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      }
+    // EDIT A POST
+    case types.EDIT_POST_BEGIN:
+      return {
+        ...state
+      }
+    case types.EDIT_POST_SUCCESS:
+      // let _posts = Object.values(state)[0].concat(action.post)
+      return {
+        ...state,
+        // posts: _posts
+      }
+    case types.EDIT_POST_ERROR:
       return {
         ...state,
         error: action.error,

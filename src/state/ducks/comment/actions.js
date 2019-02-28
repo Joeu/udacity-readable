@@ -68,36 +68,71 @@ export const updateCommentVoteScoreError = (error) => {
   }
 }
 
-export const postComment = (comment) => {
+export const addComment = (comment) => {
   return dispatch => {
-    dispatch(postCommentBegin());
-    return apiService.postComment(comment)
+    dispatch(addCommentBegin());
+    return apiService.addComment(comment)
       .then(response => {
-        dispatch(postCommentSuccess(response));
+        dispatch(addCommentSuccess(response));
         return response;
       }).catch(error =>
-        dispatch(postCommentError(error)
+        dispatch(addCommentError(error)
     ));
   }
 }
 
-export const postCommentBegin = (comment) => {
+export const addCommentBegin = (comment) => {
   return {
     type: types.POST_COMMENT_BEGIN,
     comment,
   }
 }
 
-export const postCommentSuccess = (comment) => {
+export const addCommentSuccess = (comment) => {
   return {
     type: types.POST_COMMENT_SUCCESS,
     comment
   }
 }
 
-export const postCommentError = () => {
+export const addCommentError = () => {
   return {
     type: types.POST_COMMENT_ERROR,
+  }
+}
+
+export const editComment = (comment) => {
+  return dispatch => {
+    dispatch(editCommentBegin());
+    console.log("comment");
+    console.log(comment);
+    return apiService.editComment(comment)
+      .then(response => {
+        dispatch(editCommentSuccess(response));
+        return response;
+      }).catch(error =>
+        dispatch(editCommentError(error)
+    ));
+  }
+}
+
+export const editCommentBegin = (comment) => {
+  return {
+    type: types.EDIT_COMMENT_BEGIN,
+    comment,
+  }
+}
+
+export const editCommentSuccess = (comment) => {
+  return {
+    type: types.EDIT_COMMENT_SUCCESS,
+    comment
+  }
+}
+
+export const editCommentError = () => {
+  return {
+    type: types.EDIT_COMMENT_ERROR,
   }
 }
 

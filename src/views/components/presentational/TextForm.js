@@ -13,7 +13,7 @@ const TextForm = (props) => {
             type="text" 
             name='title' 
             placeholder="Title" 
-            value={props.edit ? props.post.title : ''}
+            defaultValue={props.edit ? props.post.title : ''}
             onChange={props.handleInputChange} />
         </Form.Group>
       }
@@ -23,7 +23,7 @@ const TextForm = (props) => {
           type="text" 
           name='author' 
           placeholder="Author" 
-          value={props.edit ? props.post.author : ''}
+          defaultValue={props.edit ? props.post.author : ''}
           onChange={props.handleInputChange} />
       </Form.Group>
 
@@ -33,12 +33,12 @@ const TextForm = (props) => {
           as='textarea' 
           name='body' 
           type="text" 
-          value={props.edit ? props.post.body : ''}
+          defaultValue={props.edit ? props.post.body : ''}
           onChange={props.handleInputChange} />
       </Form.Group>
 
       <Button variant="dark" type="submit">
-        Submit
+        {props.edit ? 'Edit' : 'Add'}
       </Button>
     </Form>
   )

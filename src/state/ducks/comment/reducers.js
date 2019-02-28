@@ -49,6 +49,20 @@ const commentsReducer = (state = {}, action) => {
         ...state,
         error: action.error,
       }
+    // EDIT A COMMENT
+    case types.EDIT_COMMENT_BEGIN:
+      return {
+        ...state
+      }
+    case types.EDIT_COMMENT_SUCCESS:
+      return {
+        ...state
+      }
+    case types.EDIT_COMMENT_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      }
     // DELETE A COMMENT
     case types.DELETE_COMMENT_BEGIN:
       return Object.values(state).filter(comment => comment.id !== action.id);
