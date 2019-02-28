@@ -2,6 +2,7 @@ import React from 'react';
 import { Media } from 'react-bootstrap';
 import avatar from '../../images/avatar-placeholder.png';
 import TextFormContainer from '../container/TextFormContainer';
+import { NavLink } from "react-router-dom";
 
 const Comment = (props) => {
   const handleVoteUpdate = (option) => {
@@ -44,6 +45,11 @@ const Comment = (props) => {
                 </button>
             }
             <button className='btn'><i className='fa fa-edit'></i></button>
+            <NavLink to={`/posts/${props.post.id}`}>
+              <button className='btn'>
+                <i className="fas fa-info-circle"></i>
+              </button>
+            </NavLink>
             <button className='btn' 
               onClick={() => handleDelete(props.post.id)}>
               <i className='fa fa-trash'></i>

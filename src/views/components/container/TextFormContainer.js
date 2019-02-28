@@ -8,8 +8,6 @@ class TextFormContainer extends Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
-
     this.state = {
       id: this.uuidv4(),
       author: '',

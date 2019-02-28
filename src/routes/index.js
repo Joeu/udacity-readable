@@ -1,4 +1,4 @@
-import { HomeContainer, CategoryContainer } from '../views/components';
+import { HomeContainer, CategoryContainer, PostDetailsContainer } from '../views/components';
 
 const routes = [
   {
@@ -19,6 +19,11 @@ const routes = [
   {
     path: '/udacity/posts',
     component: CategoryContainer,
+    exact: true
+  },
+  {
+    path: '/posts/*',
+    component: PostDetailsContainer,
     exact: true
   }
 ];

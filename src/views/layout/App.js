@@ -20,7 +20,11 @@ class App extends Component {
         <header>
           <NavLink className='nav-button' to='/'>HOME</NavLink>
           {this.props.categories && this.props.categories.map(category =>
-              <NavLink className='nav-button' key={category.name} to={`/${category.path}/posts`}>{category.name.toUpperCase()}</NavLink>
+              <NavLink className='nav-button' 
+                key={category.name} 
+                to={`/${category.path}/posts`}>
+                  {category.name.toUpperCase()}
+              </NavLink>
             )
           }
         </header>
