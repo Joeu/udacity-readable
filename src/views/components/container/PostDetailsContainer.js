@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PostContainer } from '..';
+import '../../styles/Post.css';
 import NoText from '../presentational/NoText';
 
 class PostDetailsContainer extends Component {
   render() {
     return (
       <div>
-        POST DETAILS
         {this.props.post && this.props.post
-          ? <PostContainer key={this.props.post.id} post={this.props.post} ></PostContainer>
+          ? <div>
+              <h4 className='post-details-title'>Category - {this.props.post.category}</h4>
+              <PostContainer 
+                key={this.props.post.id} 
+                post={this.props.post}>
+              </PostContainer>
+            </div>
           : <NoText />
         }
       </div>

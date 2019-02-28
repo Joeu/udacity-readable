@@ -1,9 +1,14 @@
 .post-container {
   padding: 5px 0px 5px 0px;
   width: 70%;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  /* background-color: lightgrey; */
+}
+
+.post-details-title {
+  margin-left: 10%;
+  margin-top: 10px;
 }
 
 .avatar {

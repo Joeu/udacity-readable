@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import TextForm from '../presentational/TextForm';
 import { postComment } from '../../../state/ducks/comment/actions';
 import { addPost } from '../../../state/ducks/post/actions';
+import * as helper from '../../../state/utils/helpers';
 
 class TextFormContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: this.uuidv4(),
+      id: helper.uuidv4(),
       author: '',
       body: '',
       timestamp: Date.now(),
@@ -19,13 +20,6 @@ class TextFormContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
-  }
-
-  uuidv4 = () => {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r && 0x3 | 0x8);
-      return v.toString(16);
-    });
   }
 
   handleInputChange(event) {

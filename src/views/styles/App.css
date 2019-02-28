@@ -1,7 +1,9 @@
 header {
   overflow: hidden;
-  background-color: white;
+  background-color: lightgrey;
   padding: 20px 10px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .nav-button {
@@ -10,7 +12,18 @@ header {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 18px; 
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.nav-button-active {
+  float: left;
+  color: blue;
+  text-align: center;
+  padding: 12px;
+  text-decoration: underline;
+  font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
 }

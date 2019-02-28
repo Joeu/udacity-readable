@@ -1,12 +1,12 @@
 import React from 'react';
-import '../../styles/Comment.css';
+import '../../styles/NoText.css';
 
-const Comment = (props) => {
+const NoText = (props) => {
   return (
-    <div className='comment'>
+    <div className='no-text-container'>
       No Posts yet. :(
     </div>
   )
 }
 
-export default Comment;
+export default NoText;

@@ -13,7 +13,7 @@ const Post = (props) => {
       <TextContentContainer post={props.post}></TextContentContainer>
       {props.comments.length > 0 
         && <button className='btn' onClick={() => toggleComments()}>
-            <i className="fas fa-list-ol"></i> {props.comments.length}
+            <i className="fas fa-list-ol"></i> {props.comments.length} {props.comments.length > 1 ? `comments` : `comment`}
           </button>
         }
       {props.displayComments 
