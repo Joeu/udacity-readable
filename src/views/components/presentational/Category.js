@@ -4,6 +4,7 @@ import TextFormContainer from '../container/TextFormContainer';
 import NoText from './NoText';
 import { Button } from 'react-bootstrap';
 import '../../styles/Category.css';
+import * as constants from '../../utils/textConstants';
 
 const Category = (props) => {
   const toggleNewTextContent = () => {
@@ -24,7 +25,11 @@ const Category = (props) => {
     }
     <Button className='float-add-button' onClick={() => toggleNewTextContent()} variant='dark'>+</Button>
     {props.active
-      && <TextFormContainer category={props.category} isPost={true}></TextFormContainer>}
+      && <TextFormContainer 
+          category={props.category} 
+          type={constants.TEXT_TYPE_POST} 
+          isPost={true}>
+        </TextFormContainer>}
     </div>
   )
 }

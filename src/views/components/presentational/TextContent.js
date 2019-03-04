@@ -3,9 +3,10 @@ import { Media } from 'react-bootstrap';
 import avatar from '../../images/avatar-placeholder.png';
 import TextFormContainer from '../container/TextFormContainer';
 import { NavLink } from "react-router-dom";
-import * as helper from '../../../state/utils/helpers'
+import * as helper from '../../../state/utils/helpers';
+import * as constants from '../../utils/textConstants';
 
-const Comment = (props) => {
+const TextContent = (props) => {
   const handleVoteUpdate = (option) => {
     props.post.category
       ? props.updatePostVoteScore(props.post, option)
@@ -18,12 +19,12 @@ const Comment = (props) => {
       : props.deleteComment(id);
   }
 
-  const toggleNewTextContent = () => {
-    props.toggleNewTextContent();
+  const toggleNewTextContent = (type) => {
+    props.toggleNewTextContent(type);
   }
 
-  const toggleEditTextContent = () => {
-    props.toggleEditTextContent();
+  const toggleEditTextContent = (type) => {
+    props.toggleEditTextContent(type);
   }
 
   return (
@@ -54,7 +55,8 @@ const Comment = (props) => {
             {props.post.category // If the text is a Post
               && <div>
                   {/* ADD COMMENT */}
-                  <button className='btn' onClick={() => toggleNewTextContent()}>
+                  <button className='btn' 
+                    onClick={() => toggleNewTextContent(constants.TEXT_TYPE_COMMENT)}>
                     <i className='fa fa-comment'></i>
                   </button>
                   {/* POST DETAILS */}
@@ -66,7 +68,10 @@ const Comment = (props) => {
                 </div> 
             }
             {/* EDIT TEXT */}
-            <button className='btn' onClick={() => toggleEditTextContent()}>
+            <button className='btn' 
+              onClick={() => toggleEditTextContent(props.post.category 
+                                                    ? constants.TEXT_TYPE_POST
+                                                    : constants.TEXT_TYPE_COMMENT)}>
               <i className='fa fa-edit'></i>
             </button>
             {/* DELETE TEXT */}
@@ -79,6 +84,7 @@ const Comment = (props) => {
       </Media>
       {props.active 
         && <TextFormContainer 
+              type={props.type}
               isPost={props.post.category ? true : false} 
               edit={props.edit} 
               post={props.post} 
@@ -89,4 +95,4 @@ const Comment = (props) => {
   )
 }
 
-export default Comment;
+export default TextContent;

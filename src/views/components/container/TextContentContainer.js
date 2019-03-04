@@ -11,17 +11,19 @@ class TextContentContainer extends Component {
     edit: false
   }
 
-  toggleNewTextContent = () => {
+  toggleNewTextContent = (type) => {
     this.setState(() => ({
       active: !this.state.active,
-      edit: false
+      edit: false,
+      type: type
     }));
   }
 
-  toggleEditTextContent = () => {
+  toggleEditTextContent = (type) => {
     this.setState(() => ({
       edit: !this.state.edit,
-      active: !this.state.edit
+      active: !this.state.edit,
+      type: type
     }))
   }
 
@@ -34,6 +36,7 @@ class TextContentContainer extends Component {
         deleteComment={this.props.deleteComment}
         toggleNewTextContent={this.toggleNewTextContent}
         toggleEditTextContent={this.toggleEditTextContent}
+        type={this.state.type}
         active={this.state.active}
         edit={this.state.edit}
         post={this.props.post}>

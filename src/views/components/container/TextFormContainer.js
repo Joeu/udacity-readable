@@ -42,9 +42,6 @@ class TextFormContainer extends Component {
   }
 
   _handleEdit = () => {
-    console.log("HANDLEEDIT");
-    console.log(this.props.isPost);
-    console.log(this.props.post);
     this.props.isPost
       ? this.props.editPost(this.state, this.props.post.title)
       : this.props.editComment(this.state);
@@ -67,6 +64,7 @@ class TextFormContainer extends Component {
   render() {
     return (
       <TextForm 
+        type={this.props.type}
         isPost={this.props.isPost}
         handleSubmit={this.handleSubmit} 
         handleInputChange={this.handleInputChange}

@@ -1,11 +1,14 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import '../../styles/TextForm.css';
+import * as constants from '../../utils/textConstants';
 
 const TextForm = (props) => {
+  console.log("TEXT FORM PROPS")
+  console.log(props)
   return (
     <Form className='form-container' onSubmit={props.handleSubmit}>
-      {props.isPost
+      {props.type === constants.TEXT_TYPE_POST
         &&
         <Form.Group>
           <Form.Label>Title</Form.Label>

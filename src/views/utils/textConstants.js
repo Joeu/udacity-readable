@@ -1,0 +1,2 @@
+export const TEXT_TYPE_POST = 'TEXT_TYPE_POST';
+export const TEXT_TYPE_COMMENT = 'TEXT_TYPE_COMMENT';
