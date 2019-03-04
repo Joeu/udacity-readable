@@ -107,7 +107,6 @@ export const addPostError = () => {
 export const editPost = (post, title) => {
   return dispatch => {
     dispatch(editPostBegin(post, title));
-    console.log(post)
     return apiService.editPost(post, title)
       .then(response => {
         dispatch(editPostSuccess(response));

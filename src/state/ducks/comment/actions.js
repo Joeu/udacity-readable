@@ -104,8 +104,6 @@ export const addCommentError = () => {
 export const editComment = (comment) => {
   return dispatch => {
     dispatch(editCommentBegin());
-    console.log("comment");
-    console.log(comment);
     return apiService.editComment(comment)
       .then(response => {
         dispatch(editCommentSuccess(response));

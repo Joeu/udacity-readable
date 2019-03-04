@@ -4,8 +4,6 @@ import '../../styles/TextForm.css';
 import * as constants from '../../utils/textConstants';
 
 const TextForm = (props) => {
-  console.log("TEXT FORM PROPS")
-  console.log(props)
   return (
     <Form className='form-container' onSubmit={props.handleSubmit}>
       {props.type === constants.TEXT_TYPE_POST
@@ -20,16 +18,17 @@ const TextForm = (props) => {
             onChange={props.handleInputChange} />
         </Form.Group>
       }
-      <Form.Group>
-        <Form.Label>Author</Form.Label>
-        <Form.Control 
-          type="text" 
-          name='author' 
-          placeholder="Author" 
-          defaultValue={props.edit ? props.post.author : ''}
-          onChange={props.handleInputChange} />
-      </Form.Group>
-
+      {!props.edit 
+      && <Form.Group>
+          <Form.Label>Author</Form.Label>
+          <Form.Control 
+            type="text" 
+            name='author' 
+            placeholder="Author" 
+            defaultValue={props.edit ? props.post.author : ''}
+            onChange={props.handleInputChange} />
+        </Form.Group>
+      }
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control 

@@ -55,9 +55,11 @@ const commentsReducer = (state = {}, action) => {
         ...state
       }
     case types.EDIT_COMMENT_SUCCESS:
-      return {
-        ...state
-      }
+      return Object.values(state).map(comment => 
+          comment.id === action.comment.id
+          ? comment = action.comment
+          : comment = comment
+        )
     case types.EDIT_COMMENT_ERROR:
       return {
         ...state,

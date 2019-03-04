@@ -61,10 +61,13 @@ const postsReducer = (state = {}, action) => {
         ...state
       }
     case types.EDIT_POST_SUCCESS:
-      // let _posts = Object.values(state)[0].concat(action.post)
       return {
         ...state,
-        // posts: _posts
+        posts: state.posts.map(post => 
+          post.id === action.post.id
+          ? post = action.post
+          : post = post
+        )
       }
     case types.EDIT_POST_ERROR:
       return {
