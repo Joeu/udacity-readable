@@ -84,11 +84,14 @@ const TextContent = (props) => {
       </Media>
       {props.active 
         && <TextFormContainer 
+              deactivateForm={props.deactivateForm}
               type={props.type}
               isPost={props.post.category ? true : false} 
               edit={props.edit} 
               post={props.post} 
-              parentId={props.post.category ? null : props.post.id}>
+              parentId={props.type === constants.TEXT_TYPE_POST 
+                          ? null 
+                          : props.post.id}>
           </TextFormContainer>
       }
     </div>

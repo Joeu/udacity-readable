@@ -28,7 +28,9 @@ const Category = (props) => {
       && <TextFormContainer 
           category={props.category} 
           type={constants.TEXT_TYPE_POST} 
-          isPost={true}>
+          isPost={true}
+          deactivateForm={props.deactivateForm}
+         >
         </TextFormContainer>}
     </div>
   )

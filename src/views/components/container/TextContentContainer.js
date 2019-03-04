@@ -27,6 +27,12 @@ class TextContentContainer extends Component {
     }))
   }
 
+  deactivateForm = () => {
+    this.setState(() => ({
+      active: false
+    }))
+  }
+
   render() {
     return (
       <TextContent 
@@ -36,6 +42,7 @@ class TextContentContainer extends Component {
         deleteComment={this.props.deleteComment}
         toggleNewTextContent={this.toggleNewTextContent}
         toggleEditTextContent={this.toggleEditTextContent}
+        deactivateForm={this.deactivateForm}
         type={this.state.type}
         active={this.state.active}
         edit={this.state.edit}

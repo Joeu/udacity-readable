@@ -8,6 +8,12 @@ class CategoryContainer extends Component {
     active: false
   }
 
+  deactivateForm = () => {
+    this.setState(() => ({
+      active: false
+    }))
+  }
+
   toggleNewTextContent = () => {
     this.setState(() => ({
       active: !this.state.active
@@ -16,7 +22,11 @@ class CategoryContainer extends Component {
 
   render() {
     return (
-      <Category posts={this.props.posts} category={this.props.category} active={this.state.active} toggleNewTextContent={this.toggleNewTextContent}></Category>
+      <Category posts={this.props.posts} 
+                category={this.props.category} 
+                active={this.state.active} 
+                deactivateForm={this.deactivateForm}
+                toggleNewTextContent={this.toggleNewTextContent}></Category>
     )
   }
 } 

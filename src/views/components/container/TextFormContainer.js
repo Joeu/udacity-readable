@@ -4,6 +4,7 @@ import TextForm from '../presentational/TextForm';
 import { addComment, editComment } from '../../../state/ducks/comment/actions';
 import { addPost, editPost } from '../../../state/ducks/post/actions';
 import * as helper from '../../../state/utils/helpers';
+import * as constants from '../../utils/textConstants';
 
 class TextFormContainer extends Component {
   constructor(props) {
@@ -36,19 +37,20 @@ class TextFormContainer extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.handleClearForm();
+    this.props.deactivateForm();
     this.props.edit
       ? this._handleEdit()
       : this._handleAdd()
   }
 
   _handleEdit = () => {
-    this.props.isPost
+    this.props.type === constants.TEXT_TYPE_POST
       ? this.props.editPost(this.state, this.props.post.title)
       : this.props.editComment(this.state);
   }
 
   _handleAdd = () => {
-    this.props.isPost
+    this.props.type === constants.TEXT_TYPE_POST
     ? this.props.addPost(this.state)
     : this.props.addComment(this.state);
   }
