@@ -18,7 +18,7 @@ You will also see any lint errors in the console.
 
 ### `Project Structure`
 
-The project was built following the [ducks](duhttps://medium.freecodecamp.org/scaling-your-redux-app-with-ducks-6115955638becks) approach with two major directories: state and views.
+The project was built following the [ducks](https://medium.freecodecamp.org/scaling-your-redux-app-with-ducks-6115955638be) approach with two major directories: state and views.
 
 The first one contains all the Redux logic, and the second, the React component files.
 
