@@ -58,7 +58,7 @@ const commentsReducer = (state = {}, action) => {
       return Object.values(state).map(comment => 
           comment.id === action.comment.id
           ? comment = action.comment
-          : comment = comment
+          : comment
         )
     case types.EDIT_COMMENT_ERROR:
       return {

@@ -66,7 +66,7 @@ const postsReducer = (state = {}, action) => {
         posts: state.posts.map(post => 
           post.id === action.post.id
           ? post = action.post
-          : post = post
+          : post
         )
       }
     case types.EDIT_POST_ERROR:
