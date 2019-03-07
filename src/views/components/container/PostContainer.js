@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Post from '../presentational/Post';
 
 class PostContainer extends Component {
-  
   // Toggle display comments
   state = {
     displayComments: false
