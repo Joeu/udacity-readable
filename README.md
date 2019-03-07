@@ -1,20 +1,27 @@
-This is the final project regarding Udacity's React-Redux course section.
+# Post/Comment React-Redux project
 
-## Available Scripts
+### That's a fully functional post/comment application for Udacity's React nanodegree program
 
-In the project directory, you can run:
+### `Get the project up running`
 
-### `npm install` or `yarn install`
+In the project directory, you can one of the options below:
 
-and then:
+```
+npm install 
 
-### `npm start` or `yarn start`
+yarn install
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+and then (also one of the following):
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+```
+npm start
+
+yarn start
+```
+
+Finally, open [http://localhost:3000](http://localhost:3000) to view the application in the browser.
+
 
 ### `Project Structure`
 
