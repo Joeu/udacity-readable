@@ -7,22 +7,14 @@ const routes = [
     exact: true
   },
   {
-    path: '/react/posts',
+    path: '/:category/posts',
+    example: '/react/posts',
     component: CategoryContainer,
     exact: true
   },
   {
-    path: '/redux/posts',
-    component: CategoryContainer,
-    exact: true
-  },
-  {
-    path: '/udacity/posts',
-    component: CategoryContainer,
-    exact: true
-  },
-  {
-    path: '/posts/*',
+    path: '/:category/posts/:id',
+    example: '/react/posts/8xf0y6ziyjabvozdd253nd',
     component: PostDetailsContainer,
     exact: true
   }

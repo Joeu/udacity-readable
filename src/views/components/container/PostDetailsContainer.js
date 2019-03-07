@@ -6,6 +6,8 @@ import NoText from '../presentational/NoText';
 
 class PostDetailsContainer extends Component {
   render() {
+    console.log("POST DETAIL");
+    console.log(this.props);
     return (
       <div>
         {this.props.post && this.props.post
