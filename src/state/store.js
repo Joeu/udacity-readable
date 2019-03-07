@@ -3,15 +3,15 @@ import thunkMiddleware from "redux-thunk";
 import * as reducers from "./ducks";
 import { logger } from "./middlewares";
 
-export default function configureStore( initialState ) {
-    const rootReducer = combineReducers( reducers );
+export default function configureStore(initialState) {
+  const rootReducer = combineReducers(reducers);
 
-    return createStore(
-        rootReducer,
-        initialState,
-        applyMiddleware(
-            thunkMiddleware,
-            // logger
-        ),
-    );
+  return createStore(
+    rootReducer,
+    initialState,
+    applyMiddleware(
+      thunkMiddleware,
+      logger
+    ),
+  );
 }

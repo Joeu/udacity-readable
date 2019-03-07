@@ -7,14 +7,14 @@ const routes = [
     exact: true
   },
   {
-    path: '/:category/posts',
+    path: '/:category',
     example: '/react/posts',
     component: CategoryContainer,
     exact: true
   },
   {
-    path: '/:category/posts/:id',
-    example: '/react/posts/8xf0y6ziyjabvozdd253nd',
+    path: '/:category/:id',
+    example: '/react/8xf0y6ziyjabvozdd253nd',
     component: PostDetailsContainer,
     exact: true
   }

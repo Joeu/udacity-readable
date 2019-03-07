@@ -30,7 +30,7 @@ class App extends Component {
                 className='nav-button'
                 activeClassName='nav-button-active'
                 key={category.name} 
-                to={`/${category.path}/posts`}>
+                to={`/${category.path}`}>
                   {category.name.toUpperCase()}
               </NavLink>
             )

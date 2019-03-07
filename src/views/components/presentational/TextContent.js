@@ -7,8 +7,6 @@ import * as helper from '../../../state/utils/helpers';
 import * as constants from '../../utils/textConstants';
 
 const TextContent = (props) => {
-  console.log("CATEGORY");
-  console.log(props.post.category);
   const handleVoteUpdate = (option) => {
     props.post.category
       ? props.updatePostVoteScore(props.post, option)
@@ -62,7 +60,7 @@ const TextContent = (props) => {
                     <i className='fa fa-comment'></i>
                   </button>
                   {/* POST DETAILS */}
-                  <NavLink to={`${props.post.category}/posts/${props.post.id}`}>
+                  <NavLink to={`/${props.post.category}/${props.post.id}`}>
                     <button className='btn'>
                       <i className="fas fa-info-circle"></i>
                     </button>

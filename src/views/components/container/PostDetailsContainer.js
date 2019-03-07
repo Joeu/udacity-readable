@@ -8,9 +8,10 @@ class PostDetailsContainer extends Component {
   render() {
     console.log("POST DETAIL");
     console.log(this.props);
+    console.log(this.props.post);
     return (
       <div>
-        {this.props.post && this.props.post
+        {this.props.post
           ? <div>
               <h4 className='post-details-title'>Category - {this.props.post.category}</h4>
               <PostContainer 
